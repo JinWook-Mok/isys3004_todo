@@ -1,13 +1,17 @@
-//Step 1 find the element
+// Step 1 find the element
 var addTaskButton = document.getElementById("add-task");
 var newTaskInput = document.getElementById("task-input");
-var todoListContainer = document.getElementById("todo-list"):
+var todoListContainer = document.getElementById("todo-list");
+var templateContainer = document.getElementById("list-item-template");
+var template = templateContainer.innerHTML
+
 
 //Step 2 write the behaviour
 function onAddTaskClicked(event) {
-    var taskName = newTaskinput.value;
+    var taskName = newTaskInput.value;
     newTaskInput.value = "";
-    todoListContainer.insertAdjacentHTML('afterbegin', taskName);
+    var taskHTML = template.replace("<!-- TASK_NAME -->", taskName);
+    todoListContainer.insertAdjacentHTML('afterbegin', taskHTML);
 }
 
 //Step 3 link to event handler
